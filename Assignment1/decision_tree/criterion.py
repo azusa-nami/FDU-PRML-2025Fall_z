@@ -52,7 +52,7 @@ def __info_gain(y, l_y, r_y):
     # l_y and r_y                                                             #
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-    info_gain=
+    info_gain=1
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
     return info_gain
