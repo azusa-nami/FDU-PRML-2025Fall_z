@@ -37,6 +37,7 @@ def __label_stat(y, l_y, r_y):
     return all_labels, left_labels, right_labels
 
 
+
 def __info_gain(y, l_y, r_y):
     """
     Calculate the info gain
@@ -51,7 +52,7 @@ def __info_gain(y, l_y, r_y):
     # l_y and r_y                                                             #
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
+    info_gain=
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
     return info_gain

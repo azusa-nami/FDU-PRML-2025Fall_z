@@ -66,7 +66,7 @@ class LinearRegression:
         if solver == "GD":
             self.train_gd(x, y, verbose=verbose)
         elif solver == "LSE":
-            self.train_lse(x, y, lam=lam, verbose=verbose)
+            self.train_lse(x, y, verbose=verbose)
         else:
             raise ValueError("solver must be 'GD' or 'LSE'")
 
@@ -95,12 +95,12 @@ class LinearRegression:
                 err = y_hat - yb  # shape (m,)
 
                 # ====================== TODO (students) ======================
-                # Compute gradients and do one SGD step:
-                # grad_w = (err * xb).mean()
-                # grad_b = err.mean()
-                # self.w -= self.lr * grad_w
-                # self.b -= self.lr * grad_b
-                raise NotImplementedError("Fill gradients for mini-batch SGD: grad_w, grad_b; then update w, b.")  # delete this line after implementing
+                # err_pow = err * err
+                # loss = np.sum(err_pow, axis=0) / (2 * self.batch_size)
+                partial_w = np.sum(err * xb, axis=0) / self.batch_size
+                partial_b = np.sum(err, axis=0) / self.batch_size
+                self.w -= self.lr * partial_w
+                self.b -= self.lr * partial_b
                 # ====================== END TODO ============================
 
             if verbose and (ep % max(1, self.epochs // 10) == 0 or ep == 1):
@@ -118,13 +118,10 @@ class LinearRegression:
         Phi = np.stack([x, np.ones_like(x)], axis=1)  # (N, 2)
 
         # ====================== TODO (students) ======================
-        # Implement normal equation with optional ridge:
-        # R = np.diag([1.0, 0.0])
-        # A = Phi.T @ Phi
-        # b_vec = Phi.T @ y
-        # theta = np.linalg.solve(A, b_vec)
-        # self.w, self.b = float(theta[0]), float(theta[1])
-        raise NotImplementedError("Implement normal equation (ridge optional), set self.w and self.b.") # delete this line after implementing
+        m1 = np.matmul(Phi.T, Phi)
+        m2 = np.matmul(Phi.T, y)
+        result = np.linalg.solve(m1, m2)
+        self.w, self.b = result[0], result[1]
         # ====================== END TODO ============================
 
         if verbose:

@@ -24,9 +24,9 @@ def accuracy_score(y_true, y_pred):
     if y_true.shape[0] != y_pred.shape[0]:
         raise ValueError("y_true and y_pred must have the same length.")
     # =============== TODO (students) ===============
-
+    accuracy = np.sum(y_true == y_pred) / y_true.shape[0]
+    return accuracy
     # ===============================================
-    raise NotImplementedError("Implement accuracy_score")
 
 
 def mean_squared_error(y_true, y_pred):
@@ -44,12 +44,11 @@ def mean_squared_error(y_true, y_pred):
     -------
     score : mean squared error
     """
-    error = -1
     y_true = np.asarray(y_true, dtype=np.float64).reshape(-1)
     y_pred = np.asarray(y_pred, dtype=np.float64).reshape(-1)
     if y_true.shape[0] != y_pred.shape[0]:
         raise ValueError("y_true and y_pred must have the same length.")
     # =============== TODO (students) ===============
-
+    mse_error=np.mean((y_true-y_pred)**2)
+    return mse_error
     # ===============================================
-    raise NotImplementedError("Implement mean_squared_error")
