@@ -1,6 +1,6 @@
 import numpy as np
-import accuracy_error_groundtruth as acc_err      # accuracy / MSE
-import evaluation_metrics_grountruth as eval        # precision / recall / f1
+import accuracy_error as acc_err      # accuracy / MSE
+import evaluation_metrics as eval        # precision / recall / f1
 
 def test_basic():
     print("[BASIC] accuracy / MSE")
