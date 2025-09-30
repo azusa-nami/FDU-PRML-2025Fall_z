@@ -52,6 +52,5 @@ def test_dt_classification():
 			Path("decision_tree/output").mkdir(parents=True)
 		plt.savefig(f"decision_tree/output/iris_{crit}.png")
 
-
 if __name__ == '__main__':
 	test_dt_classification()

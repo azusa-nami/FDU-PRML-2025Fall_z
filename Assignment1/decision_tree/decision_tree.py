@@ -1,7 +1,7 @@
 import numpy as np
 from collections import Counter
 
-from criterion_groundtruth import get_criterion_function
+from criterion import get_criterion_function
 
 class node:
     def __init__(self,
@@ -177,6 +177,7 @@ class DecisionTreeClassifier(object):
                                   "l_y": l_y, "r_y": r_y}
                     max_score = score
             else:
+
                 for i in range(n_sample):
                     thr = X[i, c]
 
